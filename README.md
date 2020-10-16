@@ -2,6 +2,8 @@
 
 This repository hosts the authors' implementation of the paper "Stay Hungry, Stay Focused: Generating Informative and Specific Questions in Information-Seeking Conversations", published in Findings of EMNLP 2020.
 
+![The information-seeking dialogue setting and the "teacher" model that helps our model generate informative and specific questions.](images/intro.png)
+
 Check out our [paper](https://arxiv.org/pdf/2004.14530.pdf) and [blog post](https://qipeng.me/blog/learning-to-ask/) about this work for more details!
 
 ### Using the code
