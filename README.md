@@ -77,7 +77,7 @@ Aside from these, some hyperparameters might also be useful if one is keen to tu
 ```
 @inproceedings{qi2020stay,
   title = {Stay Hungry, Stay Focused: Generating Informative and Specific Questions in Information-Seeking Conversations},
-  booktitle = {Findings of {EMNLP},
+  booktitle = {Findings of {ACL}: {EMNLP} 2020),
   author = {Qi, Peng and Zhang, Yuhao and Manning, Christopher D.},
   year = {2020}
 }
