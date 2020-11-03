@@ -56,13 +56,13 @@ The training commands for the baseline, teacher, and finetuned models are
 
 ```
 # Baseline question generator
-python main.py --model_dir trained_models --topn 1016 --mode train
+python main.py --model_dir trained_models --top 1016 --mode train
 
 # Teacher's question answering and specificity models
-python main.py --model_dir trained_models --topn 1016 --mode train_teacher
+python main.py --model_dir trained_models --top 1016 --mode train_teacher
 
 # Finetune the baseline model to improve informativeness and specificity
-python main.py --model_dir trained_models --topn 1016 --mode finetune
+python main.py --model_dir trained_models --top 1016 --mode finetune
 ```
 
 Here, `--topn 1016` tells the script to only finetune the word embeddings of the top 1000 most frequent words in the training set, as well as those for the artificial symbols we introduced.

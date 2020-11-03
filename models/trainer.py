@@ -9,7 +9,6 @@ from collections import Counter
 import torch
 from torch import nn
 import torch.nn.init as init
-from colors import yellow
 
 import stanza.models.common.seq2seq_constant as constant
 from models.seq2seq import Seq2SeqModel, TeacherModel
@@ -146,7 +145,7 @@ class Seq2SeqTrainer(object):
 
             sr_mean = 0
             if self.args['lambda_reinforce'] != 0:
-                sample, s_nll = self.sample(batch, return_preds=True, top_p=self.args['top_p'])
+                sample, s_nll = self.sample(batch, return_preds=True)
 
                 neg_in, neg_out, neg_out_char, neg_text = samples_to_in_out(sample, self.vocab, src.device, src.size(0))
                 s_nll /= neg_out.ne(0).sum() / neg_out.size(0)

@@ -1,4 +1,5 @@
 allennlp==0.9.0
 spacy==2.1.9
 stanza==1.1.1
+tensorboard==2.3.0
 torch==1.4.0
