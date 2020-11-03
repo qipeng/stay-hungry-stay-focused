@@ -15,8 +15,6 @@ from torch import nn, optim
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
-from colors import blue, yellow, green
-
 from models.data import QuACDataset, QuACDataLoader, QuACBatchSampler
 from models.trainer import Seq2SeqTrainer as Trainer
 from utils.bleu import compute_bleu
