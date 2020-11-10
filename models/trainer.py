@@ -130,14 +130,13 @@ class Seq2SeqTrainer(object):
                 self.teacher.eval()
         else:
             self.model.train()
-            if i % 2 == 0:
-                self.optimizer.zero_grad()
+            self.optimizer.zero_grad()
             if self.args['lambda2'] != 0:
                 if not freeze_teacher:
                     self.teacher.train()
                 else:
                     self.teacher.eval()
-                if not freeze_teacher and i % 2 == 0:
+                if not freeze_teacher:
                     self.teacher_optimizer.zero_grad()
 
         if self.args['lambda2'] != 0:
@@ -198,17 +197,13 @@ class Seq2SeqTrainer(object):
         loss_val = loss if isinstance(loss, int) or isinstance(loss, float) else loss.item()
 
         if self.args['lambda2'] < 1:
-            loss /= 2
             loss.backward()
-            if i % 2 == 1:
-                if self.args['max_grad_norm'] > 0:
-                    torch.nn.utils.clip_grad_norm_(self.parameters, self.args['max_grad_norm'])
-                self.optimizer.step()
+            if self.args['max_grad_norm'] > 0:
+                torch.nn.utils.clip_grad_norm_(self.parameters, self.args['max_grad_norm'])
+            self.optimizer.step()
         if self.args['lambda2'] != 0 and not freeze_teacher:
-            teacher_loss /= 2
             teacher_loss.backward()
-            if i % 2 == 1:
-                self.teacher_optimizer.step()
+            self.teacher_optimizer.step()
 
         return loss_val, teacher_acc, sr_mean
 
